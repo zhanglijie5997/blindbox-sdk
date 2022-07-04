@@ -137,5 +137,10 @@ declare interface Window {
          * 播放音频
          */
         callNativePlayerAudio: (v: string) => void;
+
+        /**
+         * 设置进度
+         */
+        callNativeLoading: (number) => void;
     };
 }

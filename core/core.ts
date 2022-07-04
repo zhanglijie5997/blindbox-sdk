@@ -8,8 +8,11 @@ class BlindBox {
      * 断言,判断是否在blindbox中
      */
     isInBindBox(): asserts this is this {
+        if (!window) {
+            console.error("This SDK only works with browsers.");
+        }
         if (!window.blindbox) {
-            throw Error("this sdk only suport to bindbox app.");
+            console.error("This SDK only suport with bindbox app.");
         }
     }
     /**
@@ -264,6 +267,19 @@ class BlindBox {
             window.blindbox.callNativePlayerAudio(v);
         } catch (error) {
             callback?.();
+        }
+    }
+
+    /**
+     * 设置进度条
+     * @param progress 进度
+     * @param fn
+     */
+    callNativeSetLoadingProgress(progress: number, fn?: Function) {
+        try {
+            window.blindbox.callNativeLoading(progress);
+        } catch (error) {
+            fn?.();
         }
     }
 }

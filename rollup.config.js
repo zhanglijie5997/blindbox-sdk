@@ -1,4 +1,4 @@
-import babel from "rollup-plugin-babel";
+import babel from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
@@ -44,7 +44,7 @@ export default [
     {
         input: "./index.ts",
         output: {
-            file: "./build/index.js",
+            file: "./dist/index.js",
             format: "umd",
             name: "file",
         },
@@ -54,7 +54,7 @@ export default [
         // 生成 .d.ts 类型声明文件
         input: "./index.ts",
         output: {
-            file: "./build/index.d.ts",
+            file: "./dist/index.d.ts",
             format: "es",
         },
         plugins: [dts()],
@@ -62,7 +62,7 @@ export default [
     {
         input: "./core/core.ts",
         output: {
-            file: "./build/core/core.js",
+            file: "./dist/core/core.js",
             format: "umd",
             name: "core-file",
         },
@@ -72,7 +72,7 @@ export default [
         // 生成 .d.ts 类型声明文件
         input: "./core/core.ts",
         output: {
-            file: "./build/core/core.d.ts",
+            file: "./dist/core/core.d.ts",
             format: "es",
         },
         plugins: [dts()],
@@ -80,7 +80,7 @@ export default [
     {
         input: "./core/cocos_core.ts",
         output: {
-            file: "./build/core/cocos_core.js",
+            file: "./dist/core/cocos_core.js",
             format: "umd",
             name: "cocos_core-name",
         },
@@ -90,7 +90,7 @@ export default [
         // 生成 .d.ts 类型声明文件
         input: "./core/cocos_core.ts",
         output: {
-            file: "./build/core/cocos_core.d.ts",
+            file: "./dist/core/cocos_core.d.ts",
             format: "es",
         },
         plugins: [dts()],

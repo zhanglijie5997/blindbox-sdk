@@ -1,3 +1,3 @@
-const { core, cocoscore } = require("../build/index.js");
+const { core, cocoscore } = require("../dist/index.js");
 
-cocoscore.callNativeCheckPaid();
+cocoscore.callNativePagesJumpWeb();

@@ -27,6 +27,30 @@ class CocosCore {
     callNativeOpenMachine({ id, type }: { id: string; type: boolean }) {
         core.callNativeOpenMachine(id, type);
     }
+
+    /**
+     * 跳转web
+     * @param param0 web路径
+     * @param type   true -> 原生控制导航栏
+     */
+    callNativePagesJumpWeb({
+        pageId,
+        type,
+    }: {
+        pageId: string;
+        type: boolean;
+    }) {
+        core.callNativePagesJumpWeb(pageId, type);
+    }
+
+    /**
+     * 设置进度条
+     * @param progress 进度
+     * @param fn
+     */
+    callNativeSetLoadingProgress(progress: number) {
+        core.callNativeSetLoadingProgress(progress);
+    }
 }
 
 export default CocosCore.instance;

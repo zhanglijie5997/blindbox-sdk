@@ -104,6 +104,13 @@ declare class BlindBox {
      * @param v
      */
     callNativePlayerAudio(v: string, callback?: Function): void;
+    /**
+     * 设置进度条
+     * @param progress 进度
+     * @param fn
+     */
+    callNativeSetLoadingProgress(progress: number, fn?: Function): void;
 }
 declare const _default: BlindBox;
-export default _default;
+
+export { _default as default };
