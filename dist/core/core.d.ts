@@ -1,3 +1,9 @@
+interface CallNativePublishMessageForTopicType {
+    topic: string;
+    msg: string;
+    qos: number;
+    retained: boolean;
+}
 declare class BlindBox {
     static instance: BlindBox;
     constructor();
@@ -110,6 +116,16 @@ declare class BlindBox {
      * @param fn
      */
     callNativeSetLoadingProgress(progress: number, fn?: Function): void;
+    /**
+     * 获取用户信息
+     * @returns
+     */
+    callNativeGetUserInfo<T>(): Promise<T>;
+    /**
+     * mqtt发布消息
+     * @param data
+     */
+    callNativePublishMessageForTopic(data?: CallNativePublishMessageForTopicType, fn?: Function): void;
 }
 declare const _default: BlindBox;
 

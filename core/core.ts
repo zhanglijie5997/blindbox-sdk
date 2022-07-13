@@ -1,8 +1,15 @@
+interface CallNativePublishMessageForTopicType {
+    topic: string; // 发送的主题
+    msg: string; // 发送的消息
+    qos: number; // QOS ＝0/1/2  最多一次最少一次多次  默认 0
+    retained: boolean; // 是否保留消息，为true时,后来订阅该主题的仍然收到该消息  默认false
+}
+
 class BlindBox {
     public static instance = new BlindBox();
 
     constructor() {
-        this.isInBindBox();
+        // this.isInBindBox();
     }
     /**
      * 断言,判断是否在blindbox中
@@ -147,7 +154,7 @@ class BlindBox {
      * @param k eg: 用户id + 接口名称
      * @returns
      */
-    callNativeSelectDB<T>(k: string) {
+    callNativeSelectDB<T>(k: string): Promise<T> {
         return new Promise<T>((res, rej) => {
             const result = window.blindbox.callNativeSelectDB<T>(k);
             res(result);
@@ -278,6 +285,40 @@ class BlindBox {
     callNativeSetLoadingProgress(progress: number, fn?: Function) {
         try {
             window.blindbox.callNativeLoading(progress);
+        } catch (error) {
+            fn?.();
+        }
+    }
+    /**
+     * 获取用户信息
+     * @returns
+     */
+    callNativeGetUserInfo<T>(): Promise<T> {
+        return new Promise((res) => {
+            const result = window.blindbox.callNativeGetUserInfo() as T;
+            res(result);
+        });
+    }
+    /**
+     * mqtt发布消息
+     * @param data
+     */
+    callNativePublishMessageForTopic(
+        data: CallNativePublishMessageForTopicType = {
+            topic: "",
+            msg: "",
+            qos: 0,
+            retained: false,
+        },
+        fn?: Function
+    ) {
+        try {
+            window.blindbox.callNativePublishMessageForTopic(
+                data.topic,
+                data.msg,
+                data.qos,
+                data.retained
+            );
         } catch (error) {
             fn?.();
         }

@@ -1,12 +1,13 @@
 {
     "name": "blindbox-game-sdk",
-    "version": "0.0.91",
+    "version": "0.0.94",
     "description": "blindbox-game-sdk",
     "main": "./dist/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "tsc -w",
-        "build": "rollup -c"
+        "build": "rollup -c",
+        "publish": "npm publish"
     },
     "author": "zhanglijie5997",
     "license": "ISC",

@@ -142,5 +142,18 @@ declare interface Window {
          * 设置进度
          */
         callNativeLoading: (number) => void;
+        /**
+         * 获取用户信息
+         */
+        callNativeGetUserInfo: () => unknown;
+        /**
+         * mqtt发布消息
+         */
+        callNativePublishMessageForTopic: (
+            topic: string,
+            msg: string,
+            qos: number,
+            retained: boolean
+        ) => void;
     };
 }
