@@ -1,16 +1,10 @@
-interface CallNativePublishMessageForTopicType {
-    topic: string;
-    msg: string;
-    qos: number;
-    retained: boolean;
-}
 declare class BlindBox {
     static instance: BlindBox;
     constructor();
     /**
      * 断言,判断是否在blindbox中
      */
-    isInBindBox(): asserts this is this;
+    isInBindBox(): void;
     /**
      * blindbox 支付页面
      * @param OrderId   订单id
@@ -127,6 +121,5 @@ declare class BlindBox {
      */
     callNativePublishMessageForTopic(data?: CallNativePublishMessageForTopicType, fn?: Function): void;
 }
-declare const _default: BlindBox;
 
-export { _default as default };
+export { BlindBox as default };
